@@ -1,0 +1,59 @@
+:root {
+  --tg-theme-bg-color: #ffffff;
+  --tg-theme-secondary-bg-color: #f3f3f3;
+  --tg-theme-text-color: #000000;
+  --tg-theme-hint-color: #aaaaaa;
+  --tg-theme-button-color: #2481cc;
+  --tg-theme-button-text-color: #ffffff;
+}
+
+.app-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  background-color: var(--tg-theme-bg-color);
+}
+
+.chat-window {
+  flex-grow: 1;
+  overflow-y: auto;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.message {
+  margin-bottom: 15px;
+  max-width: 80%;
+  padding: 10px 15px;
+  border-radius: 20px;
+  word-wrap: break-word;
+  line-height: 1.4;
+}
+
+.message.user {
+  background-color: var(--tg-theme-button-color);
+  color: var(--tg-theme-button-text-color);
+  align-self: flex-end;
+  border-bottom-right-radius: 5px;
+}
+
+.message.assistant {
+  background-color: var(--tg-theme-secondary-bg-color);
+  color: var(--tg-theme-text-color);
+  align-self: flex-start;
+  border-bottom-left-radius: 5px;
+}
+
+.input-form {
+  display: flex;
+  padding: 10px;
+  border-top: 1px solid var(--tg-theme-secondary-bg-color);
+}
+
+.welcome-message {
+    text-align: center;
+    align-self: center;
+    margin: auto;
+    color: var(--tg-theme-hint-color);
+}
