@@ -2,16 +2,12 @@ require("dotenv").config();
 const express = require("express");
 const cors = require("cors");
 const axios = require("axios");
-const path = require("path");
 
 const app = express();
 const port = process.env.PORT || 3001;
 
 app.use(cors());
 app.use(express.json());
-
-// Serve static files from the React app
-app.use(express.static(path.join(__dirname, "../frontend/build")));
 
 const OPENROUTER_API_KEY = process.env.OPENROUTER_API_KEY;
 const OPENROUTER_API_URL = "https://openrouter.ai/api/v1/chat/completions";
@@ -80,11 +76,6 @@ app.post("/api/chat", async (req, res) => {
     console.error("[SERVER] General request error:", error.message);
     res.status(500).json({ error: "Failed to connect to the API service." });
   }
-});
-
-// All other GET requests not handled before will return our React app
-app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "../frontend/build", "index.html"));
 });
 
 app.listen(port, () => {

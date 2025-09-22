@@ -10,6 +10,7 @@
 # Environment variables
 .env
 /backend/.env
+/backend/.env.example
 
 # Logs
 *.log
